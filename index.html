@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Expense Tracker</title>
+   
+    <style>
+      :root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.container {
+  margin: 30px auto;
+  width: 350px;
+}
+
+h1 {
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+h3 {
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 10px;
+  margin: 40px 0 10px;
+}
+
+h4 {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.inc-exp-container {
+  background-color: #fff;
+  box-shadow: var(--box--shadow);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.inc-exp-container > div {
+  flex: 1;
+  text-align: center;
+}
+
+.inc-exp-container > div:first-of-type {
+  border-right: 1px solid #dedede;
+}
+
+.money {
+  font-size: 2;
+  letter-spacing: 1px;
+  margin: 5px 0;
+}
+.money-plus {
+  color: #2ecc71;
+}
+
+.money-minus {
+  color: #c0392b;
+}
+
+label {
+  display: inline-block;
+  margin: 10px 0;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 1px solid #dedede;
+  border-radius: 2px;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: #9c88ff;
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 16px;
+  margin: 10px 0 30px;
+  padding: 10px;
+  width: 100%;
+}
+
+.btn:focus,
+.delete-btn:focus {
+  outline: 0;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.list li {
+  background-color: #fff;
+  box-shadow: var(--box--shadow);
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.list li.plus {
+  border-right: 5px solid #2ecc71;
+}
+
+.list li.minus {
+  border-right: 5px solid #c0392b;
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: #e74c3c;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 2px 5px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-100%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.inc-exp-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  background-color: #f2f2f2;
+}
+
+.container {
+  width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+input[type="number"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#result {
+  margin-top: 20px;
+  text-align: center;
+}
+#New_Transaction {
+  margin-top: 20px;
+}
+
+#New_Transaction h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#form {
+  width: 400px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button.btn {
+  display: block;
+  width: 50%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button.btn:hover {
+  background-color: #45a049;
+}
+
+
+    </style>
+  </head>
+  <body>
+    
+    <h2>Expense Tracker</h2>
+    
+    <i class="fa fa-bars" aria-hidden="true"></i>
+
+    
+    <div class="container">
+      <h4> Balance</h4>
+      <h1 id="balance">$0.00</h1>
+      <div class="inc-exp-container">
+        <div>
+          <h4>Income</h4>
+          <p id="money-plus" class="money-plus">
+            +$0.00
+          </p>
+        </div>
+        <div>
+          <h4>Expense</h4>
+          <p id="money-minus" class="money-minus">
+            -$0.00
+          </p>
+        </div>
+      </div>
+      <div class="inc-exp-container">
+          <div class="container">
+            <h1>Goal Tracker</h1><br>
+            <input type="number" id="goalAmount" placeholder="Enter goal amount">
+        
+            <label for="currentDate">Current Date:</label>
+            <input type="date" id="currentDate"><br>
+        
+            <label for="targetDate">Target Date:</label>
+            <input type="date" id="targetDate"><br><br>
+        
+            <button onclick="calculateSavings()">Calculate</button><br><br>
+        
+            <div id="result"></div>
+            
+          </div>
+      </div>
+      <section id="New_Transaction">
+      <h3>Add New Transaction</h3>
+      <form id="form">
+          <div class="form-control">
+              <label for="text">Text</label>
+              <input type="text" id="text" placeholder="Enter Text...."/>
+          </div>
+          <div class="form-control">
+              <label for="amount">Amount <br> (negative - expense ,positive - income , )</label>
+              <input type="number" id="amount" placeholder="Enter amount..."> 
+          </div>
+          <button class="btn">All transaction</button>
+      </form>
+    </section>
+    </div>
+    <section id="History">
+    <h3>History</h3>
+    <ul id="list" class="list">
+        <!-- <li class="minus">
+         Cash <span>-$400</span
+         ><button class="delete-btn">x</button>
+       </li> -->
+     </ul>
+    </section>
+    <!-- JavaYscript Project  -->
+    <script>//1
+        var balance = document.getElementById(
+          "balance"
+        );
+        const money_plus = document.getElementById(
+          "money-plus"
+        );
+        const money_minus = document.getElementById(
+          "money-minus"
+        );
+        const list = document.getElementById("list");
+        const form = document.getElementById("form");
+        const text = document.getElementById("text");
+        const amount = document.getElementById("amount");
+        // const dummyTransactions = [
+        //   { id: 1, text: "Flower", amount: -20 },
+        //   { id: 2, text: "Salary", amount: 300 },
+        //   { id: 3, text: "Book", amount: -10 },
+        //   { id: 4, text: "Camera", amount: 150 },
+        // ];
+        
+        // let transactions = dummyTransactions;
+        
+        //last 
+        const localStorageTransactions = JSON.parse(localStorage.getItem('transactions'));
+        
+        let transactions = localStorage.getItem('transactions') !== null ? localStorageTransactions : [];
+        
+        //5
+        //Add Transaction
+        function addTransaction(e){
+          e.preventDefault();
+          if(text.value.trim() === '' || amount.value.trim() === ''){
+            alert('please add text and amount')
+          }else{
+            const transaction = {
+              id:generateID(),
+              text:text.value,
+              amount:+amount.value
+            }
+        
+            transactions.push(transaction);
+        
+            addTransactionDOM(transaction);
+            updateValues();
+            updateLocalStorage();
+            text.value='';
+            amount.value='';
+          }
+        }
+        
+        
+        //5.5
+        //Generate Random ID
+        function generateID(){
+          return Math.floor(Math.random()*1000000000);
+        }
+        
+        //2
+        
+        //Add Trasactions to DOM list
+        function addTransactionDOM(transaction) {
+          //GET sign
+          const sign = transaction.amount < 0 ? "-" : "+";
+          const item = document.createElement("li");
+        
+          //Add Class Based on Value
+          item.classList.add(
+            transaction.amount < 0 ? "minus" : "plus"
+          );
+        
+          item.innerHTML = `
+            ${transaction.text} <span>${sign}${Math.abs(
+            transaction.amount
+          )}</span>
+            <button class="delete-btn" onclick="removeTransaction(${transaction.id})">x</button>
+            `;
+          list.appendChild(item);
+        }
+        
+        //4
+        
+        //Update the balance income and expence
+        var bal;
+        function updateValues() {
+          const amounts = transactions.map(
+            (transaction) => transaction.amount
+          );
+          const total = amounts
+            .reduce((acc, item) => (acc += item), 0)
+            .toFixed(2);
+          const income = amounts
+            .filter((item) => item > 0)
+            .reduce((acc, item) => (acc += item), 0)
+            .toFixed(2);
+          const expense =
+            (amounts
+              .filter((item) => item < 0)
+              .reduce((acc, item) => (acc += item), 0) *
+            -1).toFixed(2);
+        
+            balance.innerText=`$${total}`;
+            money_plus.innerText = `$${income}`;
+            money_minus.innerText = `$${expense}`;
+            bal=`$${total}`;
+        }
+        
+        
+        //6 
+        
+        //Remove Transaction by ID
+        function removeTransaction(id){
+          transactions = transactions.filter(transaction => transaction.id !== id);
+          updateLocalStorage();
+          Init();
+        }
+        //last
+        //update Local Storage Transaction
+        function updateLocalStorage(){
+          localStorage.setItem('transactions',JSON.stringify(transactions));
+        }
+        
+        //3
+        function getCurrentDate() {
+          const now = new Date();
+          const options = { year: "numeric", month: "long", day: "numeric" };
+          return now.toLocaleDateString(undefined, options);
+        }
+        
+        //Init App
+        function Init() {
+          list.innerHTML = "";
+          transactions.forEach(addTransactionDOM);
+          updateValues();
+        }
+        
+        Init();
+        
+        form.addEventListener('submit',addTransaction);
+
+        function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+
+        function calculateSavings() {
+      var goalAmount = parseFloat(document.getElementById("goalAmount").value);
+      var currentDate = new Date(document.getElementById("currentDate").value);
+      var targetDate = new Date(document.getElementById("targetDate").value);
+
+      var daysRemaining = Math.ceil((targetDate - currentDate) / (1000 * 60 * 60 * 24));
+      var idealSaving = goalAmount / daysRemaining;
+
+      if (bal<idealSaving){
+        idealSaving=idealSaving+(idealSaving-bal);
+      }
+
+      if (isNaN(idealSaving) || idealSaving < 0) {
+        document.getElementById("result").textContent = "Invalid input. Please enter valid goal amount and dates.";
+      } else {
+        document.getElementById("result").textContent = "You need to save $" + idealSaving.toFixed(2) + " per day to reach your goal by " + targetDate.toDateString() + ".";
+      }
+    }
+        </script>
+  </body>
+</html>
